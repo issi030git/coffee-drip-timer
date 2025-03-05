@@ -1,0 +1,105 @@
+html {
+  font-size: 100%;
+}
+
+button:focus,button:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.my-menu-box {
+  position: relative;
+}
+
+.my-menu-box > button {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  background:none;
+  border:0;
+}
+
+header.el-drawer__header > span{
+    outline: none ;
+}
+
+.theme_color_main , .el-slider__bar{
+  background-color: #7B5544;
+}
+
+#el-drawer__title{
+  background-color: #f4f4f5;
+  padding: 8px;
+  margin-bottom: 24px;
+}
+
+div.el-card__body {/*カードのパッディングをデフォルトより小さく*/
+  padding: 8px;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.v-enter-active {
+  transition: opacity 1s, transform 1s;
+}
+
+.v-leave-active {
+  position: absolute;
+}
+
+.v-enter {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.el-dialog__body {
+  padding: 16px !important;
+}
+
+.el-divider--horizontal {
+  margin: 16px 0;
+}
+
+/*ユーザにテキストをドラッグできなくさせる*/
+.select-none {
+  user-select: none !important;
+  -moz-user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/*リンクの下線を消す*/
+a {
+  text-decoration: none !important;
+}
+
+p:focus {
+  outline: 0;
+  background-color: #7B5544;
+  border-color: #7B5544;
+  color: #fff;
+}
+
+.footer-bias{/*footer高さ分の下駄*/
+  margin-bottom: 72px;
+}
+
+.bg-accent {
+  background-color: bisque;
+}
+
+.text-small {
+  font-size: 0.85rem;
+}
+
+.active-row{
+  background-color: #F56C6C;
+  color: #fff;
+}
+
+.inactive-row{
+  color: #C0C4CC;
+}
