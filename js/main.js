@@ -74,9 +74,13 @@ var app = new Vue({
       if (this.status !== "start")
         return { "normal-row": true }
 
-      if (s_time <= this.getTimerSecondValue && this.getTimerSecondValue < next_row_time)
-        return { "active-row": true }
-      else if (this.getTimerSecondValue < s_time)
+      if (s_time <= this.getTimerSecondValue && this.getTimerSecondValue < next_row_time) {
+        //デューティー比6:4で明:滅
+        if (this.time % 1000 < 600)
+          return { "active-row": true }
+        else
+          return { "normal-row": true }
+      } else if (this.getTimerSecondValue < s_time)
         return { "normal-row": true }
       else
         return { "inactive-row": true }
