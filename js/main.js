@@ -138,10 +138,23 @@ var app = new Vue({
       // resizeのたびにやりたいことを記述
       this.width = window.innerWidth;
     },
+
+    loadInitialData() {
+      //メイン画面で前回最後に選択していた設定をロード
+      let loadValue = localStorage.getItem("selectedSettingNo");
+      this.selectedSettingNo = loadValue !== null ? parseInt(loadValue) : 0;
+    }
+  },
+
+  watch: {
+    selectedSettingNo: function (newVal, oldVal) {
+      localStorage.setItem("selectedSettingNo", String(newVal));
+    }
   },
 
   mounted: function () {
     window.addEventListener('resize', this.handleResize)
+    this.loadInitialData();
   },
   beforeDestroy: function () {
     window.removeEventListener('resize', this.handleResize)
