@@ -94,10 +94,10 @@
           <!-- メイン画面 -->
           <div v-if="activeScreenNo == 1" key="a" v-cloak>
             <el-card shadow="always" class="mt-4">
-              <div class="">
-                <span class="select-none">使用する設定：</span>
+              <div class="d-flex align-items-center">
+                <span class="select-none">使う設定：</span>
                 <el-select
-                  class="w-50"
+                  class="flex-grow-1"
                   v-model="selectedSettingNo"
                   placeholder="Select"
                   v-bind:disabled="status=='start'"
