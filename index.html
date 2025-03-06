@@ -163,6 +163,10 @@
           </div>
           <!-- タイマー設定画面 -->
           <div v-else-if="activeScreenNo == 2" key="b" v-cloak>
+            <p class="text-danger text-center">
+              ※現在開発中のためボタンは動作せず、設定は保存されません
+            </p>
+
             <el-card class="mt-4 mb-4">
               <div v-if="status=='start'" class="">
                 <p class="h1 text-center text-warning">
@@ -180,6 +184,67 @@
                   >
                     メイン画面へ戻る
                   </el-button>
+                </div>
+              </div>
+              <div v-else class="">
+                <div class="d-flex align-items-center">
+                  <span class="select-none">編集対象：</span>
+                  <el-select
+                    class="flex-grow-1"
+                    v-model="selectedSettingNo"
+                    placeholder="Select"
+                  >
+                    <el-option
+                      v-for="(item,index) in settings"
+                      :key="index"
+                      :label="item.settingName"
+                      :value="index"
+                    >
+                    </el-option>
+                  </el-select>
+                </div>
+
+                <!-- 設定エディタの部分 -->
+                <div class="mt-4">
+                  <div
+                    class="my-0 border-top"
+                    v-for="(pair,index) in settings[selectedSettingNo].pairs"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center py-2"
+                      v-bind:class="getRowColor(index)"
+                    >
+                      <el-input-number
+                        v-model="pair.startTime"
+                        :min="0"
+                      ></el-input-number>
+                      <span class="ml-1 mr-4">秒〜</span>
+
+                      <el-input-number
+                        v-model="pair.targetAmount"
+                        :min="0"
+                      ></el-input-number>
+                      <span class="ml-2">mlまで注ぐ</span>
+                      <el-button
+                        class="ml-2"
+                        type="danger"
+                        icon="el-icon-delete"
+                        circle
+                        v-on:click=""
+                        disabled
+                      ></el-button>
+                    </div>
+                  </div>
+                  <div class="my-0 border-top">
+                    <el-button
+                      class="d-block my-2 mx-auto"
+                      type="primary"
+                      icon="el-icon-circle-plus-outline"
+                      v-on:click=""
+                      round
+                      disabled
+                    >行追加</el-button>
+                  </div>
                 </div>
               </div>
             </el-card>
