@@ -25,7 +25,12 @@
     <!-- favicon setting -->
     <link rel="shortcut icon" href="favicon.ico" />
 
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      sizes="180x180"
+      href="apple-touch-icon.png"
+    />
     <link
       rel="icon"
       type="image/png"
@@ -159,7 +164,24 @@
           <!-- タイマー設定画面 -->
           <div v-else-if="activeScreenNo == 2" key="b" v-cloak>
             <el-card class="mt-4 mb-4">
-              <div>※未制作</div>
+              <div v-if="status=='start'" class="">
+                <p class="h1 text-center text-warning">
+                  <i class="el-icon-warning"></i>
+                </p>
+                <p class="text-center">
+                  タイマー起動中は設定を編集することはできません。
+                </p>
+                <div class="row m-0">
+                  <el-button
+                    class="col-sm-12 col-md-6 mx-auto"
+                    type="warning"
+                    round
+                    v-on:click="activeScreenNo=1"
+                  >
+                    メイン画面へ戻る
+                  </el-button>
+                </div>
+              </div>
             </el-card>
           </div>
 
