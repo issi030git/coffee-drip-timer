@@ -113,3 +113,8 @@ span.el-input-number__increase,span.el-input-number__decrease{
   padding-right: 24px !important;
   font-size: 1.2rem;
 }
+
+/*テキストの改行防止*/
+.no-line-break {
+  white-space: nowrap;
+}

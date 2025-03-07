@@ -29,21 +29,45 @@ var app = new Vue({
         ]
       },
       {
-        settingName: "4:6メソッド14g200ml",
+        settingName: "新しい設定#2",
         pairs: [
-          { startTime: 0, targetAmount: 40 },
-          { startTime: 40, targetAmount: 80 },
-          { startTime: 90, targetAmount: 120 },
-          { startTime: 130, targetAmount: 160 },
-          { startTime: 160, targetAmount: 200 },
+          { startTime: 0, targetAmount: 0 },
         ]
       },
       {
-        settingName: "テストデータ",
+        settingName: "新しい設定#3",
         pairs: [
-          { startTime: 0, targetAmount: 10 },
-          { startTime: 5, targetAmount: 20 },
-          { startTime: 10, targetAmount: 30 },
+          { startTime: 0, targetAmount: 0 },
+        ]
+      },
+      {
+        settingName: "新しい設定#4",
+        pairs: [
+          { startTime: 0, targetAmount: 0 },
+        ]
+      },
+      {
+        settingName: "新しい設定#5",
+        pairs: [
+          { startTime: 0, targetAmount: 0 },
+        ]
+      },
+      {
+        settingName: "新しい設定#6",
+        pairs: [
+          { startTime: 0, targetAmount: 0 },
+        ]
+      },
+      {
+        settingName: "新しい設定#7",
+        pairs: [
+          { startTime: 0, targetAmount: 0 },
+        ]
+      },
+      {
+        settingName: "新しい設定#8",
+        pairs: [
+          { startTime: 0, targetAmount: 0 },
         ]
       },
     ],
@@ -55,6 +79,9 @@ var app = new Vue({
   computed: {// 何か処理をした結果をデータとして返す
     getTimerSecondValue: function () {
       return Math.floor(this.time / 1000)
+    },
+    isOnly1PairItem: function () {
+      return this.settings[this.selectedSettingNo].pairs.length === 1;
     },
     drawerWidth: function () {//ページ表示時のウィンドウ幅に応じてダイアログのwidthを計算
       if (this.width < 640)
