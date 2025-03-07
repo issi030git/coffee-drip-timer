@@ -19,7 +19,7 @@ var app = new Vue({
     selectedSettingNo: 0,
     settings: [
       {
-        settingName: "4:6メソッド20g300ml",
+        settingName: "ex.4:6メソッド20g300ml",
         pairs: [
           { startTime: 0, targetAmount: 60 },
           { startTime: 40, targetAmount: 120 },
@@ -167,8 +167,13 @@ var app = new Vue({
     },
 
     loadInitialData() {
+      //設定配列をロード
+      let loadValue = localStorage.getItem("settings");
+      if (loadValue !== null)
+        this.settings = JSON.parse(loadValue);
+
       //メイン画面で前回最後に選択していた設定をロード
-      let loadValue = localStorage.getItem("selectedSettingNo");
+      loadValue = localStorage.getItem("selectedSettingNo");
       this.selectedSettingNo = loadValue !== null ? parseInt(loadValue) : 0;
     },
 
@@ -185,7 +190,15 @@ var app = new Vue({
   watch: {
     selectedSettingNo: function (newVal, oldVal) {
       localStorage.setItem("selectedSettingNo", String(newVal));
+    },
+
+    settings: {
+      handler(newVal, oldVal) {
+        localStorage.setItem("settings", JSON.stringify(newVal));
+      },
+      deep: true //配列要素の監視時に必要
     }
+
   },
 
   mounted: function () {
