@@ -166,7 +166,7 @@
           <!-- タイマー設定画面 -->
           <div v-else-if="activeScreenNo == 2" key="b" v-cloak>
             <p class="text-danger text-center">
-              ※現在開発中のためボタンは動作せず、設定は保存されません
+              ※現在開発中のため設定は保存されません
             </p>
 
             <el-card class="mt-4 mb-4">
@@ -224,7 +224,6 @@
                   >
                     <div
                       class="d-flex justify-content-center align-items-center py-2"
-                      v-bind:class="getRowColor(index)"
                     >
                       <el-input-number
                         v-model="pair.startTime"
@@ -242,7 +241,7 @@
                         type="danger"
                         icon="el-icon-delete"
                         circle
-                        v-on:click=""
+                        v-on:click="deletePairItem(index)"
                         v-bind:disabled="index==0 && isOnly1PairItem"
                       ></el-button>
                     </div>

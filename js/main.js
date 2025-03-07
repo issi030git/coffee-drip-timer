@@ -174,6 +174,10 @@ var app = new Vue({
 
     addPairItem() {
       this.settings[this.selectedSettingNo].pairs.push({ startTime: 0, targetAmount: 0 });
+    },
+
+    deletePairItem(idx) {
+      this.settings[this.selectedSettingNo].pairs.splice(idx, 1);
     }
 
   },
