@@ -73,19 +73,19 @@
           class="ui-text ml-2"
           v-on:click="activeScreenNo=1;drawerVisible=false"
         >
-          メイン画面
+          <i class="el-icon-coffee-cup mr-1"></i>メイン画面
         </p>
         <p
           class="ui-text ml-2"
           v-on:click="activeScreenNo=2;drawerVisible=false"
         >
-          設定編集画面
+          <i class="el-icon-setting mr-1"></i>設定画面
         </p>
         <p
           class="ui-text ml-2"
           v-on:click="activeScreenNo=3;drawerVisible=false"
         >
-          使い方説明
+          <i class="el-icon-chat-dot-round mr-1"></i>使い方説明
         </p>
       </el-drawer>
 
@@ -112,7 +112,7 @@
                 </el-select>
               </div>
 
-              <div class="mt-4">
+              <div class="mt-4 select-none">
                 <div class="d-flex justify-content-center align-items-center">
                   <span class="h6 mb-0">{{getTimeStr()}}</span>
                 </div>
@@ -171,18 +171,8 @@
                   <i class="el-icon-warning"></i>
                 </p>
                 <p class="text-center">
-                  タイマー起動中は設定を編集することはできません。
+                  タイマー起動中は設定を編集できません。
                 </p>
-                <div class="row m-0">
-                  <el-button
-                    class="col-sm-12 col-md-6 mx-auto"
-                    type="warning"
-                    round
-                    v-on:click="activeScreenNo=1"
-                  >
-                    メイン画面へ戻る
-                  </el-button>
-                </div>
               </div>
               <div v-else class="">
                 <div class="d-flex col-md-8 mx-auto px-0 align-items-center">
@@ -271,7 +261,21 @@
       </div>
 
       <footer class="bg-white fixed-bottom text-center">
-        <span>Copyright (C) 2025. issi030. All Rights Reserved.</span>
+        <div class="d-flex col-md-8 mx-auto pt-2 px-0 justify-content-center select-none">
+          <div
+            class="col-4 py-1 border-right text-muted"
+            v-on:click="activeScreenNo=1"
+          ><i class="el-icon-coffee-cup mr-1"></i>メイン</div>
+          <div
+            class="col-4 py-1 border-right text-muted"
+            v-on:click="activeScreenNo=2"
+          ><i class="el-icon-setting mr-1"></i>設定</div>
+          <div
+            class="col-4 py-1 text-muted"
+            v-on:click="activeScreenNo=3"
+          ><i class="el-icon-chat-dot-round mr-1"></i>使い方</div>
+        </div>
+        <span class="d-block mt-2">Copyright (C) 2025. issi030. All Rights Reserved.</span>
       </footer>
     </div>
 
