@@ -6,6 +6,7 @@ var app = new Vue({
     time: 0,
     startTime: null,
     stopTime: 0,
+    overRunTime: 20,
 
     //画面遷移関係
     activeScreenNo: 1,
@@ -78,10 +79,13 @@ var app = new Vue({
 
   computed: {// 何か処理をした結果をデータとして返す
     getTimerSecondValue: function () {
-      return Math.floor(this.time / 1000)
+      return Math.floor(this.time / 1000);
     },
     isOnly1PairItem: function () {
       return this.settings[this.selectedSettingNo].pairs.length === 1;
+    },
+    autoStopTime: function () {
+      return this.settings[this.selectedSettingNo].pairs.at(-1).startTime + this.overRunTime;//末尾要素の時間+overRunTimeを返す
     },
     drawerWidth: function () {//ページ表示時のウィンドウ幅に応じてダイアログのwidthを計算
       if (this.width < 640)
@@ -197,8 +201,12 @@ var app = new Vue({
         localStorage.setItem("settings", JSON.stringify(newVal));
       },
       deep: true //配列要素の監視時に必要
-    }
+    },
 
+    getTimerSecondValue: function (newVal, oldVal) {
+      if (newVal > this.autoStopTime)
+        this.reset();
+    }
   },
 
   mounted: function () {
