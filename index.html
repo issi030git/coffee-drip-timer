@@ -226,6 +226,7 @@
                         class="ml-2"
                         type="danger"
                         icon="el-icon-delete"
+                        size="small"
                         circle
                         v-on:click="deletePairItem(index)"
                         v-bind:disabled="index==0 && isOnly1PairItem"
@@ -235,8 +236,9 @@
                   <div class="my-0 border-top">
                     <el-button
                       class="d-block my-2 mx-auto"
-                      type="primary"
+                      type="warning"
                       icon="el-icon-circle-plus-outline"
+                      size="medium"
                       v-on:click="addPairItem()"
                       round
                     >行追加</el-button>
