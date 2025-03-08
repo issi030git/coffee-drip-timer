@@ -43,7 +43,7 @@ div.el-card__body {/*カードのパッディングをデフォルトより小�
 }
 
 .v-enter-active {
-  transition: opacity 1s, transform 1s;
+  transition: opacity 0.5s, transform 0.5s;
 }
 
 .v-leave-active {
@@ -52,7 +52,7 @@ div.el-card__body {/*カードのパッディングをデフォルトより小�
 
 .v-enter {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(16px);
 }
 
 .el-dialog__body {
