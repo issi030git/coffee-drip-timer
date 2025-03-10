@@ -2,19 +2,19 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="”description”" content="" />
+
     <!-- for BootStrap -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <!-- for BootStrap -->
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
-    />
+    >
+
     <!-- for Elements-->
     <link
       rel="stylesheet"
@@ -48,7 +48,7 @@
         <div
           class="container px-2 m-0 h3 d-flex align-items-center mx-auto text-light my-menu-box disable-select"
         >
-          <img class="mr-2" src="img/icon.svg" width="28" height="28" />
+          <img class="me-2" src="img/icon.svg" width="28" height="28" />
           Coffee Drip Timer
           <!-- ハンバーガーボタン -->
           <button
@@ -70,22 +70,22 @@
         class="select-none"
       >
         <p
-          class="ui-text ml-2"
+          class="ui-text m-0 p-2"
           v-on:click="activeScreenNo=1;drawerVisible=false"
         >
-          <i class="el-icon-coffee-cup mr-1"></i>メイン画面
+          <i class="el-icon-coffee-cup me-1"></i>メイン画面
         </p>
         <p
-          class="ui-text ml-2"
+          class="ui-text m-0 p-2"
           v-on:click="activeScreenNo=2;drawerVisible=false"
         >
-          <i class="el-icon-setting mr-1"></i>設定画面
+          <i class="el-icon-setting me-1"></i>設定画面
         </p>
         <p
-          class="ui-text ml-2"
+          class="ui-text m-0 p-2"
           v-on:click="activeScreenNo=3;drawerVisible=false"
         >
-          <i class="el-icon-chat-dot-round mr-1"></i>使い方説明
+          <i class="el-icon-chat-dot-round me-1"></i>使い方説明
         </p>
       </el-drawer>
 
@@ -118,7 +118,7 @@
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                   <span class="h1 mb-0">{{getTimerSecondValue}}</span>
-                  <span class="ml-2">秒</span>
+                  <span class="ms-2">秒</span>
                 </div>
 
                 <div
@@ -155,9 +155,9 @@
                     v-bind:class="getRowColor(index)"
                   >
                     <span class="h4 mb-0">{{pair.startTime}}</span
-                    ><span class="ml-1 mr-4">秒〜</span>
+                    ><span class="ms-1 me-4">秒〜</span>
                     <span class="h1 mb-0">{{pair.targetAmount}}</span
-                    ><span class="ml-2">mlまで注ぐ</span>
+                    ><span class="ms-2">mlまで注ぐ</span>
                   </div>
                 </div>
               </div>
@@ -221,9 +221,9 @@
                         v-model="pair.targetAmount"
                         :min="0"
                       ></el-input-number>
-                      <span class="ml-2">mlまで注ぐ</span>
+                      <span class="ms-2">mlまで注ぐ</span>
                       <el-button
-                        class="ml-2"
+                        class="ms-2"
                         type="danger"
                         icon="el-icon-delete"
                         size="small"
@@ -267,15 +267,15 @@
           <div
             class="col-4 py-1 border-right text-muted"
             v-on:click="activeScreenNo=1"
-          ><i class="el-icon-coffee-cup mr-1"></i>メイン</div>
+          ><i class="el-icon-coffee-cup me-1"></i>メイン</div>
           <div
             class="col-4 py-1 border-right text-muted"
             v-on:click="activeScreenNo=2"
-          ><i class="el-icon-setting mr-1"></i>設定</div>
+          ><i class="el-icon-setting me-1"></i>設定</div>
           <div
             class="col-4 py-1 text-muted"
             v-on:click="activeScreenNo=3"
-          ><i class="el-icon-chat-dot-round mr-1"></i>使い方</div>
+          ><i class="el-icon-chat-dot-round me-1"></i>使い方</div>
         </div>
         <span class="d-block mt-2">Copyright (C) 2025. issi030. All Rights Reserved.</span>
       </footer>
@@ -288,18 +288,8 @@
 
     <!-- for BootStrap -->
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
 
