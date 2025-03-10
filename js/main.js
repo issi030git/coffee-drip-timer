@@ -1,80 +1,78 @@
-var app = new Vue({
-  el: '#app',
-  data: {
-    //timer関係
-    status: "clear",
-    time: 0,
-    startTime: null,
-    stopTime: 0,
-    overRunTime: 20,
+const App = {
+  data() {
+    return {
+      //timer関係
+      status: "clear",
+      time: 0,
+      startTime: null,
+      stopTime: 0,
+      overRunTime: 20,
 
-    //画面遷移関係
-    activeScreenNo: 1,
+      //画面遷移関係
+      activeScreenNo: 1,
 
-    //ドロワー関係
-    drawerVisible: false,
-    direction: 'rtl',//ドロワーの方向
-    width: window.innerWidth,
+      //ドロワー関係
+      drawerVisible: false,
+      direction: 'rtl',//ドロワーの方向
+      width: window.innerWidth,
 
-    //設定関係
-    selectedSettingNo: 0,
-    settings: [
-      {
-        settingName: "ex.4:6メソッド20g300ml",
-        pairs: [
-          { startTime: 0, targetAmount: 60 },
-          { startTime: 40, targetAmount: 120 },
-          { startTime: 90, targetAmount: 180 },
-          { startTime: 130, targetAmount: 240 },
-          { startTime: 160, targetAmount: 300 },
-        ]
-      },
-      {
-        settingName: "新しい設定#2",
-        pairs: [
-          { startTime: 0, targetAmount: 0 },
-        ]
-      },
-      {
-        settingName: "新しい設定#3",
-        pairs: [
-          { startTime: 0, targetAmount: 0 },
-        ]
-      },
-      {
-        settingName: "新しい設定#4",
-        pairs: [
-          { startTime: 0, targetAmount: 0 },
-        ]
-      },
-      {
-        settingName: "新しい設定#5",
-        pairs: [
-          { startTime: 0, targetAmount: 0 },
-        ]
-      },
-      {
-        settingName: "新しい設定#6",
-        pairs: [
-          { startTime: 0, targetAmount: 0 },
-        ]
-      },
-      {
-        settingName: "新しい設定#7",
-        pairs: [
-          { startTime: 0, targetAmount: 0 },
-        ]
-      },
-      {
-        settingName: "新しい設定#8",
-        pairs: [
-          { startTime: 0, targetAmount: 0 },
-        ]
-      },
-    ],
-  },
-
-  filters: {
+      //設定関係
+      selectedSettingNo: 0,
+      settings: [
+        {
+          settingName: "ex.4:6メソッド20g300ml",
+          pairs: [
+            { startTime: 0, targetAmount: 60 },
+            { startTime: 40, targetAmount: 120 },
+            { startTime: 90, targetAmount: 180 },
+            { startTime: 130, targetAmount: 240 },
+            { startTime: 160, targetAmount: 300 },
+          ]
+        },
+        {
+          settingName: "新しい設定#2",
+          pairs: [
+            { startTime: 0, targetAmount: 0 },
+          ]
+        },
+        {
+          settingName: "新しい設定#3",
+          pairs: [
+            { startTime: 0, targetAmount: 0 },
+          ]
+        },
+        {
+          settingName: "新しい設定#4",
+          pairs: [
+            { startTime: 0, targetAmount: 0 },
+          ]
+        },
+        {
+          settingName: "新しい設定#5",
+          pairs: [
+            { startTime: 0, targetAmount: 0 },
+          ]
+        },
+        {
+          settingName: "新しい設定#6",
+          pairs: [
+            { startTime: 0, targetAmount: 0 },
+          ]
+        },
+        {
+          settingName: "新しい設定#7",
+          pairs: [
+            { startTime: 0, targetAmount: 0 },
+          ]
+        },
+        {
+          settingName: "新しい設定#8",
+          pairs: [
+            { startTime: 0, targetAmount: 0 },
+          ]
+        },
+      ],
+    }
   },
 
   computed: {// 何か処理をした結果をデータとして返す
@@ -217,4 +215,7 @@ var app = new Vue({
     window.removeEventListener('resize', this.handleResize)
   }
 
-})
+};
+const app = Vue.createApp(App);
+app.use(ElementPlus);
+app.mount('#app');
