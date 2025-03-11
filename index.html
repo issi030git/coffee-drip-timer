@@ -23,6 +23,8 @@
     <!-- Import component library -->
     <script src="//unpkg.com/element-plus"></script>
 
+    <script src="//unpkg.com/@element-plus/icons-vue"></script>
+ 
     <!-- my CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- favicon setting -->
@@ -68,28 +70,33 @@
         v-cloak
         title="メニュー"
         :size="drawerWidth"
-        :visible.sync="drawerVisible"
+        v-model="drawerVisible"
         :direction="direction"
         class="select-none"
       >
-        <p
-          class="ui-text m-0 p-2"
+        <div
+          class="d-flex align-items-center m-0 py-2"
           v-on:click="activeScreenNo=1;drawerVisible=false"
         >
-          <i class="el-icon-coffee-cup me-1"></i>メイン画面
-        </p>
-        <p
-          class="ui-text m-0 p-2"
+          <el-icon :size="20" class="me-1"><Mug /></el-icon>
+          <span>メイン画面</span>
+        </div>
+
+        <div
+          class="d-flex align-items-center m-0 py-2"
           v-on:click="activeScreenNo=2;drawerVisible=false"
         >
-          <i class="el-icon-setting me-1"></i>設定画面
-        </p>
-        <p
-          class="ui-text m-0 p-2"
+          <el-icon :size="20" class="me-1"><Setting /></el-icon>
+          <span>設定画面</span>
+        </div>
+
+        <div
+          class="d-flex align-items-center m-0 py-2"
           v-on:click="activeScreenNo=3;drawerVisible=false"
         >
-          <i class="el-icon-chat-dot-round me-1"></i>使い方説明
-        </p>
+          <el-icon :size="20" class="me-1"><Document /></el-icon>
+          <span>使い方説明</span>
+        </div>
       </el-drawer>
 
       <div class="container pt-0 pb-2 px-2 footer-bias">
@@ -98,7 +105,7 @@
           <div v-if="activeScreenNo == 1" key="a" v-cloak>
             <el-card shadow="always" class="mt-4">
               <div class="d-flex col-md-8 mx-auto px-0 align-items-center">
-                <span class="select-none">使う設定：</span>
+                <span class="select-none no-line-break">使う設定：</span>
                 <el-select
                   class="flex-grow-1"
                   v-model="selectedSettingNo"
@@ -130,7 +137,8 @@
                   <el-button
                     class="col-8"
                     type="warning"
-                    icon="el-icon-timer"
+                    icon="Timer"
+                    size="large"
                     round
                     v-on:click="start()"
                     v-bind:disabled="status=='start'"
@@ -140,6 +148,7 @@
                   <el-button
                     class="col-4"
                     type="info"
+                    size="large"
                     round
                     v-on:click="reset()"
                   >
@@ -171,7 +180,7 @@
             <el-card class="mt-4 mb-4">
               <div v-if="status=='start'" class="">
                 <p class="h1 text-center text-warning">
-                  <i class="el-icon-warning"></i>
+                  <el-icon><Warning /></el-icon>
                 </p>
                 <p class="text-center">
                   タイマー起動中は設定を編集できません。
@@ -179,7 +188,7 @@
               </div>
               <div v-else class="">
                 <div class="d-flex col-md-8 mx-auto px-0 align-items-center">
-                  <span class="select-none">編集対象：</span>
+                  <span class="select-none no-line-break">編集対象：</span>
                   <el-select
                     class="flex-grow-1"
                     v-model="selectedSettingNo"
@@ -196,7 +205,7 @@
                 </div>
 
                 <div class="d-flex col-md-8 mt-4 mx-auto px-0 align-items-center">
-                  <span class="select-none no-line-break">設定名<i class="el-icon-edit"></i>：</span>
+                  <span class="select-none no-line-break">設定名</span><el-icon><Edit /></el-icon><span>：</span>
                   <el-input
                     type="text"
                     placeholder="Please input"
@@ -228,7 +237,7 @@
                       <el-button
                         class="ms-2"
                         type="danger"
-                        icon="el-icon-delete"
+                        icon="Delete"
                         size="small"
                         circle
                         v-on:click="deletePairItem(index)"
@@ -236,12 +245,10 @@
                       ></el-button>
                     </div>
                   </div>
-                  <div class="my-0 border-top">
+                  <div class="d-flex justify-content-center my-0 py-2 border-top">
                     <el-button
-                      class="d-block my-2 mx-auto"
                       type="warning"
-                      icon="el-icon-circle-plus-outline"
-                      size="medium"
+                      icon="Plus"
                       v-on:click="addPairItem()"
                       round
                     >行追加</el-button>
@@ -268,17 +275,17 @@
       <footer class="bg-white fixed-bottom text-center">
         <div class="d-flex col-md-8 mx-auto pt-2 px-0 justify-content-center select-none">
           <div
-            class="col-4 py-1 border-right text-muted"
+            class="col-4 d-flex justify-content-center align-items-center py-1 border-end text-muted"
             v-on:click="activeScreenNo=1"
-          ><i class="el-icon-coffee-cup me-1"></i>メイン</div>
+          ><el-icon :size="20" class="me-1"><Mug /></el-icon>メイン</div>
           <div
-            class="col-4 py-1 border-right text-muted"
+            class="col-4 d-flex justify-content-center align-items-center py-1 border-end text-muted"
             v-on:click="activeScreenNo=2"
-          ><i class="el-icon-setting me-1"></i>設定</div>
+          ><el-icon :size="20" class="me-1"><Setting /></el-icon>設定</div>
           <div
-            class="col-4 py-1 text-muted"
+            class="col-4 d-flex justify-content-center align-items-center py-1 text-muted"
             v-on:click="activeScreenNo=3"
-          ><i class="el-icon-chat-dot-round me-1"></i>使い方</div>
+          ><el-icon :size="20" class="me-1"><Document /></el-icon>使い方</div>
         </div>
         <span class="d-block mt-2">Copyright (C) 2025. issi030. All Rights Reserved.</span>
       </footer>

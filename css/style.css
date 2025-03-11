@@ -20,6 +20,10 @@ button:focus,button:active {
   border:0;
 }
 
+.el-drawer__body {
+  padding-top: 0px;
+}
+
 header.el-drawer__header > span{
     outline: none ;
 }
@@ -91,10 +95,6 @@ p:focus {
   background-color: bisque;
 }
 
-.text-small {
-  font-size: 0.85rem;
-}
-
 .active-row{
   background-color: #F56C6C;
   color: #fff;
@@ -108,7 +108,7 @@ span.el-input-number__increase,span.el-input-number__decrease{
   width: 28px;
 }
 
-.el-input-number input.el-input__inner{
+.el-input-number .el-input__wrapper{
   padding-left: 24px !important;
   padding-right: 24px !important;
   font-size: 1.2rem;

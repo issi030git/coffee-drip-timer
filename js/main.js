@@ -217,5 +217,12 @@ const App = {
 
 };
 const app = Vue.createApp(App);
+
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  if (key === "QuestionFilled")
+    console.log(key, component)
+  app.component(key, component)
+}
+
 app.use(ElementPlus);
 app.mount('#app');
