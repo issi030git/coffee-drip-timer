@@ -2,9 +2,10 @@ html {
   font-size: 100%;
 }
 
-button:focus,button:active {
-    outline: none !important;
-    box-shadow: none;
+button:focus,
+button:active {
+  outline: none !important;
+  box-shadow: none;
 }
 
 .my-menu-box {
@@ -16,29 +17,30 @@ button:focus,button:active {
   height: 100%;
   right: 0;
   bottom: 0;
-  background:none;
-  border:0;
+  background: none;
+  border: 0;
 }
 
 .el-drawer__body {
   padding-top: 0px;
 }
 
-header.el-drawer__header > span{
-    outline: none ;
+header.el-drawer__header > span {
+  outline: none;
 }
 
-.theme_color_main , .el-slider__bar{
-  background-color: #7B5544;
+.theme_color_main {
+  background-color: #7b5544;
 }
 
-#el-drawer__title{
+#el-drawer__title {
   background-color: #f4f4f5;
   padding: 8px;
   margin-bottom: 24px;
 }
 
-div.el-card__body {/*カードのパッディングをデフォルトより小さく*/
+div.el-card__body {
+  /*カードのパッディングをデフォルトより小さく*/
   padding: 8px;
 }
 
@@ -82,12 +84,13 @@ a {
 
 p:focus {
   outline: 0;
-  background-color: #7B5544;
-  border-color: #7B5544;
+  background-color: #7b5544;
+  border-color: #7b5544;
   color: #fff;
 }
 
-.footer-bias{/*footer高さ分の下駄*/
+.footer-bias {
+  /*footer高さ分の下駄*/
   margin-bottom: 72px;
 }
 
@@ -95,26 +98,22 @@ p:focus {
   background-color: bisque;
 }
 
-.active-row{
-  background-color: #F56C6C;
+.active-row {
+  background-color: #f56c6c;
   color: #fff;
 }
 
-.inactive-row{
-  color: #C0C4CC;
+.inactive-row {
+  color: #c0c4cc;
 }
 
-span.el-input-number__increase,span.el-input-number__decrease{
+span.el-input-number__increase,
+span.el-input-number__decrease {
   width: 28px;
 }
 
-.el-input-number .el-input__wrapper{
+.el-input-number .el-input__wrapper {
   padding-left: 24px !important;
   padding-right: 24px !important;
   font-size: 1.2rem;
-}
-
-/*テキストの改行防止*/
-.no-line-break {
-  white-space: nowrap;
 }
