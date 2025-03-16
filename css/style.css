@@ -2,12 +2,6 @@ html {
   font-size: 100%;
 }
 
-button:focus,
-button:active {
-  outline: none !important;
-  box-shadow: none;
-}
-
 .my-menu-box {
   position: relative;
 }
@@ -48,25 +42,17 @@ div.el-card__body {
   display: none;
 }
 
+.v-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
 .v-enter-active {
   transition: opacity 0.8s, transform 0.8s;
 }
 
-.v-leave-active {
-  position: absolute;
-}
-
-.v-enter {
-  opacity: 0;
-  transform: translateY(24px);
-}
-
 .el-dialog__body {
   padding: 16px !important;
-}
-
-.el-divider--horizontal {
-  margin: 16px 0;
 }
 
 /*ユーザにテキストをドラッグできなくさせる*/
@@ -75,18 +61,6 @@ div.el-card__body {
   -moz-user-select: none !important;
   -webkit-user-select: none !important;
   -ms-user-select: none !important;
-}
-
-/*リンクの下線を消す*/
-a {
-  text-decoration: none !important;
-}
-
-p:focus {
-  outline: 0;
-  background-color: #7b5544;
-  border-color: #7b5544;
-  color: #fff;
 }
 
 .footer-bias {

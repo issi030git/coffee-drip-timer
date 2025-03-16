@@ -104,7 +104,7 @@
       </el-drawer>
 
       <div class="container pt-0 pb-2 px-2 footer-bias">
-        <transition appear>
+        <Transition>
           <!-- メイン画面 -->
           <div v-if="activeScreenNo == 1" key="a" v-cloak>
             <el-card shadow="always" class="mt-4">
@@ -298,7 +298,7 @@
               </ul>
             </el-card>
           </div>
-        </transition>
+        </Transition>
       </div>
 
       <footer class="bg-white fixed-bottom text-center">
