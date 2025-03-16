@@ -9,7 +9,7 @@ const App = {
       overRunTime: 20,
 
       //画面遷移関係
-      activeScreenNo: 1,
+      activeScreenNo: 0,
 
       //ドロワー関係
       drawerVisible: false,
@@ -210,6 +210,7 @@ const App = {
   mounted: function () {
     window.addEventListener('resize', this.handleResize)
     this.loadInitialData();
+    this.activeScreenNo = 1;
   },
   beforeDestroy: function () {
     window.removeEventListener('resize', this.handleResize)
