@@ -128,7 +128,7 @@
                   <span class="h6 mb-0">{{getTimeStr()}}</span>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
-                  <span class="h1 mb-0">{{getTimerSecondValue}}</span>
+                  <span class="fs-1 fw-bold">{{getTimerSecondValue}}</span>
                   <span class="ms-2">秒</span>
                 </div>
 
@@ -160,17 +160,17 @@
 
               <div class="mt-4 select-none">
                 <div
-                  class="my-0 border-top"
+                  class="row py-2 my-0 justify-content-center border-top"
                   v-for="(pair,index) in settings[selectedSettingNo].pairs"
+                  v-bind:class="getRowColor(index)"
                 >
-                  <div
-                    class="d-flex justify-content-center align-items-center py-2"
-                    v-bind:class="getRowColor(index)"
-                  >
-                    <span class="h4 mb-0">{{pair.startTime}}</span
-                    ><span class="ms-1 me-4">秒〜</span>
-                    <span class="h1 mb-0">{{pair.targetAmount}}</span
-                    ><span class="ms-2">mlまで注ぐ</span>
+                  <div class="col-3 col-md-3 px-0 d-flex align-items-center justify-content-center">
+                    <span class="mb-0 fs-2 fw-bold">{{pair.startTime}}</span>
+                    <span class="ms-1">秒〜</span>
+                  </div>
+                  <div class="col-5 col-md-3 px-0 d-flex align-items-center justify-content-center">
+                    <span class="mb-0 fs-1 fw-bold">{{pair.targetAmount}}</span>
+                    <span class="ms-1">mlまで注ぐ</span>
                   </div>
                 </div>
               </div>
