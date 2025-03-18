@@ -85,6 +85,15 @@ const App = {
     autoStopTime: function () {
       return this.settings[this.selectedSettingNo].pairs.at(-1).startTime + this.overRunTime;//末尾要素の時間+overRunTimeを返す
     },
+
+    dripStartTimes: function () {
+      let times = [];
+      this.settings[this.selectedSettingNo].pairs.forEach(pair => {
+        times.push(pair.startTime);
+      });
+      return times;
+    },
+
     drawerWidth: function () {//ページ表示時のウィンドウ幅に応じてダイアログのwidthを計算
       if (this.width < 640)
         return "50%";//モバイル端末のとき
@@ -116,6 +125,7 @@ const App = {
     },
 
     start() {
+      new Audio('sound/start.mp3').play();
       this.status = "start"
 
       if (this.startTime === null) {
@@ -137,6 +147,7 @@ const App = {
       this.stopTime = this.time
     },
     reset() {
+      new Audio('sound/reset.mp3').play();
       this.stop()
       this.status = "clear"
       this.time = 0
@@ -202,6 +213,9 @@ const App = {
     },
 
     getTimerSecondValue: function (newVal, oldVal) {
+      //newValが0ではなくかつdripStartTImes内の値のどれかなら注ぎ始めを知らせる音を鳴らす
+      if (newVal !== 0 && this.dripStartTimes.some((arrVal) => newVal === arrVal))
+        new Audio('sound/next.mp3').play();
       if (newVal > this.autoStopTime)
         this.reset();
     }
