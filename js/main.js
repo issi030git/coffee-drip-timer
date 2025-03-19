@@ -23,10 +23,10 @@ const App = {
           settingName: "ex.4:6メソッド20g300ml",
           pairs: [
             { startTime: 0, targetAmount: 60 },
-            { startTime: 40, targetAmount: 120 },
+            { startTime: 45, targetAmount: 120 },
             { startTime: 90, targetAmount: 180 },
-            { startTime: 130, targetAmount: 240 },
-            { startTime: 160, targetAmount: 300 },
+            { startTime: 135, targetAmount: 240 },
+            { startTime: 165, targetAmount: 300 },
           ]
         },
         {
