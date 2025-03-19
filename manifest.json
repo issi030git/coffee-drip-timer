@@ -1,0 +1,9 @@
+{
+  "name": "CoffeeDripTimer",
+  "short_name": "CDT",
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "https://issi030git.github.io/coffee-drip-timer/"
+}
