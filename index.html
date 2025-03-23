@@ -281,18 +281,22 @@
           <div v-else-if="activeScreenNo == 3" key="c" v-cloak>
             <el-card class="mt-4 mb-4">
               <h4>概要</h4>
-              <div class="text-center col-md-6 mx-md-auto">
-                <el-image src="img/fig1.png" fit="contain" />
-              </div>
-              <ul>
+              <ul class="mb-0">
                 <li>
                   スマホ(or PC)と一般的なクッキングスケールだけで、<a
                     href="https://philocoffea.com/?mode=f3&srsltid=AfmBOoqslrhhCy6aQe9yfjS6-xjdPl3HluzxIc7EYQhkTGpsOrHJgD1h"
                     target="_blank"
                     >4:6メソッド</a
-                  >のような「時間と湯量を設定したドリップ」が手軽にできるようになるタイマーアプリです（本アプリのプリセット値はサイト内の「ベーシックな淹れ方」と同一）。
+                  >のような「時間と湯量を設定したドリップ」が手軽にできるようになるタイマーアプリです（本アプリのプリセット値はリンク先の「ベーシックな淹れ方」と同一）。
                 </li>
-                <li>設定画面では独自のドリップ用設定を作ることが可能です。</li>
+              </ul>
+              <div class="text-center col-md-6 mx-md-auto">
+                <el-image src="img/fig1.png" fit="contain" />
+              </div>
+              <ul>
+                <li>
+                  設定画面では最大8つまで独自のドリップ用設定を作ることが可能です。
+                </li>
               </ul>
               <h4>メイン画面</h4>
               <ul>
@@ -311,6 +315,7 @@
                 <li>
                   経過時間と目標湯量の数値を入力します。ボタンで行追加や行削除ができます。
                 </li>
+                <li>設定の変更内容は即座に自動保存されます(誤操作に注意)。</li>
               </ul>
             </el-card>
           </div>
