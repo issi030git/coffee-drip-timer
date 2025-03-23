@@ -9,6 +9,7 @@ const App = {
       overRunTime: 20,
 
       //画面遷移関係
+      isFirstTime: true, //初回起動かどうか
       activeScreenNo: 0,
 
       //ドロワー関係
@@ -180,8 +181,12 @@ const App = {
     },
 
     loadInitialData() {
+      let loadValue = localStorage.getItem("visited");
+      if (loadValue !== null)
+        this.isFirstTime = false;
+
       //設定配列をロード
-      let loadValue = localStorage.getItem("settings");
+      loadValue = localStorage.getItem("settings");
       if (loadValue !== null)
         this.settings = JSON.parse(loadValue);
 
@@ -224,7 +229,12 @@ const App = {
   mounted: function () {
     window.addEventListener('resize', this.handleResize)
     this.loadInitialData();
-    this.activeScreenNo = 1;
+    if (this.isFirstTime) {
+      localStorage.setItem("visited", '1');
+      this.activeScreenNo = 3;
+    }
+    else
+      this.activeScreenNo = 1;
   },
   beforeDestroy: function () {
     window.removeEventListener('resize', this.handleResize)
