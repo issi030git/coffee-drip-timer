@@ -4,8 +4,8 @@
   "theme_color": "#7b5544",
   "background_color": "#7b5544",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "index.html",
+  "scope": "/coffee-drip-timer/",
+  "start_url": "./index.html",
   "icons": [
     {
       "src": "android-touch-icon.png",
