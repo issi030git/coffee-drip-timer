@@ -30,7 +30,7 @@
     <script src="//cdn.jsdelivr.net/npm/@element-plus/icons-vue"></script>
 
     <!-- my CSS -->
-    <link rel="stylesheet" href="css/style.css?1.1.0" />
+    <link rel="stylesheet" href="css/style.css?1.1.1" />
     <!-- favicon setting -->
     <link rel="shortcut icon" href="favicon.ico" />
 
@@ -385,18 +385,21 @@
         >
           <div
             class="col-4 d-flex justify-content-center align-items-center py-1 border-end text-muted"
+            :class="{'active-menu-style':activeScreenNo==1}"
             v-on:click="activeScreenNo=1"
           >
             <el-icon :size="20" class="me-1"><Mug /></el-icon>メイン
           </div>
           <div
             class="col-4 d-flex justify-content-center align-items-center py-1 border-end text-muted"
+            :class="{'active-menu-style':activeScreenNo==2}"
             v-on:click="activeScreenNo=2"
           >
             <el-icon :size="20" class="me-1"><Setting /></el-icon>設定
           </div>
           <div
             class="col-4 d-flex justify-content-center align-items-center py-1 text-muted"
+            :class="{'active-menu-style':activeScreenNo==3}"
             v-on:click="activeScreenNo=3"
           >
             <el-icon :size="20" class="me-1"><Document /></el-icon>使い方
@@ -416,6 +419,6 @@
     ></script>
 
     <!-- my JS -->
-    <script src="js/main.js?1.1.0"></script>
+    <script src="js/main.js?1.1.1"></script>
   </body>
 </html>
