@@ -30,7 +30,7 @@
     <script src="//cdn.jsdelivr.net/npm/@element-plus/icons-vue"></script>
 
     <!-- my CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?1.1.0" />
     <!-- favicon setting -->
     <link rel="shortcut icon" href="favicon.ico" />
 
@@ -229,6 +229,45 @@
                   </el-input>
                 </div>
 
+                <div class="d-flex justify-content-center my-0 mt-2">
+                  <el-button
+                    type="info"
+                    icon="DocumentCopy"
+                    v-on:click="beanQuantityDialogVisible = true"
+                    round
+                    plain
+                  >
+                    4:6メソッドで設定を埋める
+                  </el-button>
+                </div>
+
+                <el-dialog
+                  v-model="beanQuantityDialogVisible"
+                  title="豆の量を入力"
+                  :width="beanQuantityDialogWidth"
+                >
+                  <div class="d-flex justify-content-center align-items-center">
+                    <el-input-number v-model="beanQuantity" :min="1" :max="100">
+                    </el-input-number>
+                    <span class="ms-2">g</span>
+                  </div>
+                  <div
+                    class="d-flex justify-content-center align-items-center mt-2"
+                  >
+                    <span class="">→ 湯量：{{beanQuantity * 15}} ml</span>
+                  </div>
+                  <template #footer>
+                    <div class="dialog-footer">
+                      <el-button v-on:click="beanQuantityDialogVisible = false">
+                        キャンセル
+                      </el-button>
+                      <el-button type="primary" @click="fill46Value()">
+                        決定
+                      </el-button>
+                    </div>
+                  </template>
+                </el-dialog>
+
                 <!-- 設定エディタの部分 -->
                 <div class="mt-2 col-md-8 mx-auto">
                   <div
@@ -372,6 +411,6 @@
     ></script>
 
     <!-- my JS -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js?1.1.0"></script>
   </body>
 </html>

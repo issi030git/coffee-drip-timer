@@ -19,6 +19,8 @@ const App = {
 
       //設定関係
       selectedSettingNo: 0,
+      beanQuantity: 20,
+      beanQuantityDialogVisible: false,
       settings: [
         {
           settingName: "ex.4:6メソッド20g300ml",
@@ -101,9 +103,28 @@ const App = {
       else
         return "30%";//PCのとき
     },
+    beanQuantityDialogWidth: function () {
+      if (this.width < 640)
+        return "60%";//モバイル端末のとき
+      else
+        return "30%";//PCのとき
+    }
   },
 
   methods: {
+    //現在の設定に4:6メソッドに基づいた設定値を投入
+    fill46Value() {
+      let resultArray = new Array();
+      let waterQuantity = this.beanQuantity * 15;
+      let timeTable = new Array(0, 45, 90, 135, 165);
+      for (let i = 1; i <= 5; i++) {
+        resultArray.push({ startTime: timeTable[i - 1], targetAmount: waterQuantity / 5 * i });
+      }
+      this.settings[this.selectedSettingNo].pairs = resultArray;
+      this.settings[this.selectedSettingNo].settingName = "豆の量" + this.beanQuantity + "g" + "湯量" + waterQuantity + "ml";
+      this.beanQuantityDialogVisible = false;
+    },
+
     //現在のカウント値に基づき各抽出量行の色を変えるためのクラス名を返す
     getRowColor(idx) {
       let row_pairs = this.settings[this.selectedSettingNo].pairs;
