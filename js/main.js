@@ -1,3 +1,7 @@
+const start_se = new Audio('sound/start.mp3');
+const reset_se = new Audio('sound/reset.mp3');
+const next_se = new Audio('sound/next.mp3');
+
 const App = {
   data() {
     return {
@@ -147,7 +151,7 @@ const App = {
     },
 
     start() {
-      new Audio('sound/start.mp3').play();
+      start_se.play();
       this.status = "start"
 
       if (this.startTime === null) {
@@ -169,7 +173,7 @@ const App = {
       this.stopTime = this.time
     },
     reset() {
-      new Audio('sound/reset.mp3').play();
+      reset_se.play();
       this.stop()
       this.status = "clear"
       this.time = 0
@@ -241,7 +245,7 @@ const App = {
     getTimerSecondValue: function (newVal, oldVal) {
       //newValが0ではなくかつdripStartTImes内の値のどれかなら注ぎ始めを知らせる音を鳴らす
       if (newVal !== 0 && this.dripStartTimes.some((arrVal) => newVal === arrVal))
-        new Audio('sound/next.mp3').play();
+        next_se.play();
       if (newVal > this.autoStopTime)
         this.reset();
     }
