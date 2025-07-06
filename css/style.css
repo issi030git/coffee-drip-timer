@@ -97,6 +97,10 @@ span.el-input-number__decrease {
 }
 
 .active-menu-style {
-  background-color: rgb(235, 180.6, 99) !important;
+  background-color: #7b5544 !important;
   color: #fff !important;
+}
+
+.fs-timer {
+  font-size: calc(2.0625rem + 2.25vw) !important;
 }
