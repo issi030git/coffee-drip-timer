@@ -16,7 +16,7 @@ html {
 }
 
 .el-drawer__body {
-  padding-top: 0px;
+  padding: 0px;
 }
 
 header.el-drawer__header > span {
@@ -36,6 +36,7 @@ header.el-drawer__header > span {
 div.el-card__body {
   /*カードのパッディングをデフォルトより小さく*/
   padding: 8px;
+  padding-top: 16px;
 }
 
 [v-cloak] {
