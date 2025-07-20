@@ -6,6 +6,10 @@ html {
   position: relative;
 }
 
+#main-panel-button-box > button:nth-child(n + 2) {
+  margin-left: 8px;
+}
+
 .my-menu-box > button {
   position: absolute;
   height: 100%;
