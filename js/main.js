@@ -150,6 +150,11 @@ const App = {
         return { "inactive-row": true }
     },
 
+    getLastRowBottomBorder(idx) {
+      if (idx === this.settings[this.selectedSettingNo].pairs.length - 1)
+        return { "border-bottom": true };
+    },
+
     start() {
       start_se.play();
       this.status = "start"

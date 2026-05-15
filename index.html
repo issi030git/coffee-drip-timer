@@ -142,39 +142,13 @@
                   <span class="fs-timer fw-bold">{{getTimerSecondValue}}</span>
                   <span class="ms-2">秒</span>
                 </div>
-
-                <div
-                  id="main-panel-button-box"
-                  class="d-flex col-md-8 px-1 mx-auto justify-content-center"
-                >
-                  <el-button
-                    class="col-8 py-4"
-                    type="warning"
-                    icon="Timer"
-                    size="large"
-                    round
-                    v-on:click="start()"
-                    v-bind:disabled="status=='start'"
-                  >
-                    タイマースタート
-                  </el-button>
-                  <el-button
-                    class="col-4 py-4"
-                    type="info"
-                    size="large"
-                    round
-                    v-on:click="reset()"
-                  >
-                    リセット
-                  </el-button>
-                </div>
               </div>
 
-              <div class="mt-4 col-md-8 mx-auto select-none">
+              <div class="mt-2 col-md-8 mx-auto select-none">
                 <div
                   class="row py-2 m-0 justify-content-center border-top"
                   v-for="(pair,index) in settings[selectedSettingNo].pairs"
-                  v-bind:class="getRowColor(index)"
+                  v-bind:class="[getRowColor(index), getLastRowBottomBorder(index)]"
                 >
                   <div
                     class="col-3 col-md-4 px-0 d-flex align-items-center justify-content-center"
@@ -189,6 +163,32 @@
                     <span class="ms-1">mlまで注ぐ</span>
                   </div>
                 </div>
+              </div>
+
+              <div
+                id="main-panel-button-box"
+                class="d-flex col-md-8 px-1 mt-3 mb-2 mx-auto justify-content-center"
+              >
+                <el-button
+                  class="col-8 py-4"
+                  type="warning"
+                  icon="Timer"
+                  size="large"
+                  round
+                  v-on:click="start()"
+                  v-bind:disabled="status=='start'"
+                >
+                  タイマースタート
+                </el-button>
+                <el-button
+                  class="col-4 py-4"
+                  type="info"
+                  size="large"
+                  round
+                  v-on:click="reset()"
+                >
+                  リセット
+                </el-button>
               </div>
             </el-card>
           </div>
@@ -387,21 +387,21 @@
           class="d-flex col-md-8 mx-auto pt-2 px-0 justify-content-center select-none"
         >
           <div
-            class="col-4 d-flex justify-content-center align-items-center py-1 border-end text-muted"
+            class="col-4 d-flex justify-content-center align-items-center py-2 border-end text-muted"
             :class="{'active-menu-style':activeScreenNo==1}"
             v-on:click="activeScreenNo=1"
           >
             <el-icon :size="20" class="me-1"><Mug /></el-icon>メイン
           </div>
           <div
-            class="col-4 d-flex justify-content-center align-items-center py-1 border-end text-muted"
+            class="col-4 d-flex justify-content-center align-items-center py-2 border-end text-muted"
             :class="{'active-menu-style':activeScreenNo==2}"
             v-on:click="activeScreenNo=2"
           >
             <el-icon :size="20" class="me-1"><Setting /></el-icon>設定
           </div>
           <div
-            class="col-4 d-flex justify-content-center align-items-center py-1 text-muted"
+            class="col-4 d-flex justify-content-center align-items-center py-2 text-muted"
             :class="{'active-menu-style':activeScreenNo==3}"
             v-on:click="activeScreenNo=3"
           >
